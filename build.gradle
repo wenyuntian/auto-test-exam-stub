@@ -41,7 +41,7 @@ contracts {
     testFramework = org.springframework.cloud.contract.verifier.config.TestFramework.JUNIT5
     packageWithBaseClasses = 'com.thoughtworks.exam'
     baseClassMappings {
-        baseClassMapping(".*blankQuiz.*", "com.thoughtworks.exam.TestBase")
+        baseClassMapping(".quiz.*", "com.thoughtworks.exam.TestBase")
         baseClassMapping(".*paper.*", "com.thoughtworks.exam.TestBase")
     }
     testMode = 'Explicit'

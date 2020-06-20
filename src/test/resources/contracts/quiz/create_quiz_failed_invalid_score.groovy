@@ -1,17 +1,17 @@
-package blankQuiz
+package quiz
 
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
     description '''
-Represents creating a new blankQuiz
+Represents creating a new quiz
 
 given:
-    a valid blank quiz info
+    an invalid score
 when:
     a teacher create a new paper
 then:
-    this teacher should get a valid blankQuizId
+    this teacher should get bad request
 '''
 
     request {
@@ -23,18 +23,18 @@ then:
         body(
                 teacherId: $(consumer(regex('[a-zA-Z0-9]{36}'))),
                 question: $(consumer(regex('.{1,255}'))),
-                score: $(consumer(regex('100|[1-9][0-9]|[1-9]'))),
+                score: 110,
                 referenceAnswer: $(consumer(regex('.{1,4000}')))
         )
     }
 
     response {
-        status CREATED()
+        status BAD_REQUEST()
         headers {
             contentType applicationJson()
         }
         body(
-                blankQuizId: $(producer(regex('[a-zA-Z-0-9]{36}')), consumer('8jk4l-k0d9ie7-4jk89l-t8ikdj6-h50o8ij'))
+                errorMsg: 'Invalid Score',
         )
     }
 }
