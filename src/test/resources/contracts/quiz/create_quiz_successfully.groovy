@@ -9,9 +9,9 @@ Represents creating a new quiz
 given:
     a valid blank quiz info
 when:
-    a teacher create a new paper
+    a teacher create a new quiz
 then:
-    this teacher should get a valid blankQuizId
+    this teacher should get a valid quizId
 '''
 
     request {

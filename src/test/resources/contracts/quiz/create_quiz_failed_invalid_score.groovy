@@ -9,7 +9,7 @@ Represents creating a new quiz
 given:
     an invalid score
 when:
-    a teacher create a new paper
+    a teacher create a new quiz
 then:
     this teacher should get bad request
 '''
