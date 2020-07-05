@@ -9,5 +9,4 @@ public abstract class TestBase {
     public void setup() {
         RestAssured.baseURI = "http://localhost:8000";
     }
-
 }
